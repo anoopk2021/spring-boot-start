@@ -1,6 +1,7 @@
 package com.edu.springbootstart.controller;
 
         import com.edu.springbootstart.model.Student;
+        import org.springframework.web.bind.annotation.RequestBody;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.RequestParam;
         import org.springframework.web.bind.annotation.RestController;
@@ -16,20 +17,14 @@ public class StudentController {
 
     //ENDPOINT1
     @RequestMapping("/add_student")
-    public String add(){
+    public String add(@RequestBody Student student){
 
-        Student student1= new Student("Raj",23,"CS");
-        Student student2= new Student("Arun",24,"IT");
-        Student student3= new Student("Sumit",27,"Mechanical");
-        Student student4= new Student("rohan",28,"Civil");
 
-        studentArrayList.add(student1);
-        studentArrayList.add(student2);
-        studentArrayList.add(student3);
-        studentArrayList.add(student4);
+        studentArrayList.add(student);
 
         return "Student Added Successfully ....";
     }
+
     //ENDPOINT2
     @RequestMapping("/get_students")
     public ArrayList<Student> getStudentArrayList(){
